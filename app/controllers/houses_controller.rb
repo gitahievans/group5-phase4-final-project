@@ -15,6 +15,13 @@ wrap_parameters format: []
         end
     end
 
+    def show 
+        house = House.find(params[:id])
+        if house 
+            render json: house, status: :ok
+        end
+    end
+
     def update 
         house = House.find(params[:id])
         if house 
@@ -28,8 +35,9 @@ wrap_parameters format: []
         if house
             house.destroy
             head :no_content
+        end
     end
-    
+
     private 
 
     def house_params 
