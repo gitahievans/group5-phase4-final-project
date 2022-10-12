@@ -3,12 +3,15 @@ import Navbar from './Navbar'
 import { BrowserRouter as Router, Routes } from "react-router-dom";
 
 
+
 function App() {
 
   return (
     <Router>
     <div>
       <Navbar/>
+      
+
     </div>
 
 
