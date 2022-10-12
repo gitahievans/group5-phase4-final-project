@@ -1,6 +1,6 @@
 class LandlordsController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
-    rescue_from ActiveRecord::InvalidRecord, with: :render_unprocessable_entity_response
+    rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
     # GET/landlords
     def index
@@ -41,7 +41,7 @@ class LandlordsController < ApplicationController
     end
 
     def render_unprocessable_entity_response(e)
-        render json: {errors: e.record.errors.full_messages}, status: :unprocessable entity
+        render json: {errors: e.record.errors.full_messages}, status: :unprocessable_entity
     end
 
     def landlord_params
